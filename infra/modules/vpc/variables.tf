@@ -1,6 +1,6 @@
 variable "vpc_cidr"{
  description="CIDR block for the vpc"
- type = "string"
+ type = string
 }
 
 variable "public_subnets"{
