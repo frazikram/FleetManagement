@@ -8,3 +8,10 @@ module "apigateway" {
   source           = "./modules/apigateway"
   apigw_stage_name = var.apigw_stage_name
 }
+module "dynamodb" {
+  source = "./modules/dynamodb"
+}
+
+module "sns" {
+  source = "./modules/sns"
+}
