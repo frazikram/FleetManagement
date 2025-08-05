@@ -24,3 +24,6 @@ variable "private_subnets" {
   description = "List of CIDR blocks for private subnets"
   type        = list(string)
 }
+variable "apigw_stage_name" {
+  type = string
+}

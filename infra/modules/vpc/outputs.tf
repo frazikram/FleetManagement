@@ -19,3 +19,6 @@ output "internet_gateway_id" {
 output "public_route_table_id" {
   value = aws_route_table.public.id
 }
+output "db_security_group_id" {
+  value = aws_security_group.rds.id
+}

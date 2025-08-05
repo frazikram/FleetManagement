@@ -4,3 +4,7 @@ module "vpc"{
   public_subnets  = var.public_subnets
   private_subnets = var.private_subnets
 }
+module "apigateway" {
+  source           = "./modules/apigateway"
+  apigw_stage_name = var.apigw_stage_name
+}

@@ -52,3 +52,23 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
+resource "aws_security_group" "rds"{
+  name        = "rds-sg"
+  description = "Allow internal access to PostgreSQL"
+  vpc_id      = aws_vpc.main.id
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = [aws_vpc.main.cidr_block]  # internal VPC access only
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+   tags = {
+    Name = "rds-sg"
+  }
+}
