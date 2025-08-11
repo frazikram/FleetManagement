@@ -6,6 +6,13 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+export enum TripStatus {
+  REQUESTED = 'requested',
+  ACCEPTED = 'accepted',
+  IN_PROGRESS = 'in_progress',
+  COMPLETED = 'completed',
+  CANCELLED = 'cancelled',
+}
 @Entity()
 export class Trip {
   @PrimaryGeneratedColumn('uuid')
@@ -23,7 +30,11 @@ export class Trip {
   @Column()
   dropOffLocation: string;
 
-  @Column({ default: 'requested' })
+  @Column({
+    type:'enum',
+    enum:TripStatus,
+    default: TripStatus.REQUESTED
+  })
   status: 'requested' | 'accepted' | 'in_progress' | 'completed' | 'cancelled';
 
   @Column({type:'float', nullable:true})

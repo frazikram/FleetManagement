@@ -1,6 +1,6 @@
 export class CreateTripDto {
     riderId: string;
     pickupLocation: string;
-    dropoffLocation: string;
+    dropOffLocation: string;
     fareEstimate?: number;
 }
