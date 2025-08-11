@@ -31,18 +31,18 @@ export class Trip {
   dropOffLocation: string;
 
   @Column({
-    type:'enum',
-    enum:TripStatus,
-    default: TripStatus.REQUESTED
+    type: 'enum',
+    enum: TripStatus,
+    default: TripStatus.REQUESTED,
   })
   status: 'requested' | 'accepted' | 'in_progress' | 'completed' | 'cancelled';
 
-  @Column({type:'float', nullable:true})
+  @Column({ type: 'numeric', precision: 10, scale: 2, nullable: true })
   fareEstimate: number;
 
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
-  updatedAt:Date;
+  updatedAt: Date;
 }

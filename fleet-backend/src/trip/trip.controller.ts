@@ -11,7 +11,7 @@ export class TripController {
   create(@Body() createTripDto: CreateTripDto) {
     return this.tripService.create(createTripDto);
   }
-
+// ToDo add pagination later
   @Get()
   findAll() {
     return this.tripService.findAll();
@@ -19,16 +19,16 @@ export class TripController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.tripService.findOne(+id);
+    return this.tripService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTripDto: UpdateTripDto) {
-    return this.tripService.update(+id, updateTripDto);
+    return this.tripService.update(id, updateTripDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.tripService.remove(+id);
+    return this.tripService.remove(id);
   }
 }
