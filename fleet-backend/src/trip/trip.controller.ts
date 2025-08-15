@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { TripService } from './trip.service';
 import { CreateTripDto } from './dto/create-trip.dto';
 import { UpdateTripDto } from './dto/update-trip.dto';
@@ -11,7 +19,7 @@ export class TripController {
   create(@Body() createTripDto: CreateTripDto) {
     return this.tripService.create(createTripDto);
   }
-// ToDo add pagination later
+  // ToDo add pagination later
   @Get()
   findAll() {
     return this.tripService.findAll();
